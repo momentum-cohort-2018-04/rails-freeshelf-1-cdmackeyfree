@@ -1,0 +1,17 @@
+<h1>The Free Shelf</h1>
+<h2><em>Your friendly neighborhood lang library</em></h2>
+
+<h2><bold>Our Available Books</bold></h2>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Author</th>
+  </tr>
+ 
+  <% @book.each do |book| %>
+    <tr>
+      <td><%= book.title %></td>
+      <td><%= book.authors %></td>
+    </tr>
+  <% end %>
+</table>

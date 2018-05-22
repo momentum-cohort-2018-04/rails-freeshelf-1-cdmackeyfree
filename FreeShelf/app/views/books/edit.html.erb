@@ -1,13 +1,13 @@
 <h1>Edit</h1>
 
-<%= form_with scope: :book, url: books_path, local: true do |form| %>
+<%= form_with model: @book, local: true do |form| %>
   <p>
     <%= form.label :title %><br>
     <%= form.text_field :title %>
   </p>
 
   <p>
-    <% =f.collection_select(
+    <%= form.collection_select(
 	    :author_id,
 	    Author.all,
 	    :id,
@@ -28,3 +28,6 @@
     <%= form.submit %>
   </p>
 <% end %>
+
+<%= link_to "Author List", authors_path %>
+<%= link_to "Book List", books_path %>

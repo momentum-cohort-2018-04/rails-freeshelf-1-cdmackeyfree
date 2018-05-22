@@ -1,0 +1,21 @@
+<h2><bold>Our Available Authors</bold></h2>
+<table>
+  <tr>
+    <th>Author</th>
+    <th>Options</th>
+  </tr>
+ 
+  <% @author.each do |author| %>
+    <tr>
+      <td><%= author.name %></td>
+      <td><%= link_to 'Edit', edit_author_path(author) %></td>
+      <td><%= link_to 'Destroy', author_path(author),
+              method: :delete,
+              data: { confirm: 'For real?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to "Book List", books_path %>
+
+<%= link_to 'Add a New Author', new_author_path %>

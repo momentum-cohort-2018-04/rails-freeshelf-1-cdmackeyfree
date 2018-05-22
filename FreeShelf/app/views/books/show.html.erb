@@ -7,7 +7,7 @@
  
 <p>
   <strong>Author:</strong>
-  <%= @book.authors %>
+  <%= @book.authors.pluck(:name).join(',') %>
 </p>
 
 <p>
@@ -19,3 +19,6 @@
   <strong>Description:</strong>
   <%= @book.description %>
 </p>
+
+<%= link_to "Author List", authors_path %>
+<%= link_to "Book List", books_path %>

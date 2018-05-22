@@ -1,6 +1,6 @@
 <h1>Add a new book!</h1>
 
-<%= form_with scope: :book, url: books_path, local: true do |form| %>
+<%= form_with model: @book, url: books_path, local: true do |form| %>
   <p>
     <%= form.label :title %><br>
     <%= form.text_field :title %>
@@ -8,7 +8,7 @@
 
   <p>
     <%= form.collection_select(
-	    :author_id,
+	    :author_ids,
 	    Author.all,
 	    :id,
 	    :name) %>
@@ -26,7 +26,7 @@
  
   <p>
     <%= form.label :description %><br>
-    <%= form.text_area :text %>
+    <%= form.text_area :description %>
   </p>
  
   <p>

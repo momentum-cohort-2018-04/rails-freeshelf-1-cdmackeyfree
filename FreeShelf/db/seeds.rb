@@ -5,3 +5,5 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+books = Book.create([{ tile: 'Lamb', author: 'Christopher Moore', url: "wwww.lambsrus.com", description: "Gud" }, { title: 'Lord of the Rings', author: "JRR Tolks", url: "www.lolshorties.com", description: "one can't simply" }])

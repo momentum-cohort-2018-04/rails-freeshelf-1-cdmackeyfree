@@ -6,12 +6,27 @@
   <tr>
     <th>Title</th>
     <th>Author</th>
+    <th>Language</th>
+    <th>Options</th>
   </tr>
  
   <% @book.each do |book| %>
     <tr>
       <td><%= book.title %></td>
-      <td><%= book.authors %></td>
+      <td><%= book.authors.pluck(:name).join(', ') %></td>
+      <td><%= book.language %></td>
+      <td><%= link_to 'Show', book_path(book) %></td>
+      <td><%= link_to 'Edit', edit_book_path(book) %></td>
+      <td><%= link_to 'Destroy', book_path(book),
+              method: :delete,
+              data: { confirm: 'For real?' } %></td>
     </tr>
   <% end %>
 </table>
+
+
+<%= link_to 'Add a New Book', new_book_path %>
+
+<%= link_to 'Add a New Author', new_author_path %>
+
+<%= link_to "Author List", authors_path %>

@@ -9,8 +9,11 @@ class BooksController < ApplicationController
   
     def create
       @book = Book.new(book_params)
-      @book.save
-      redirect_to @book
+      if @book.save 
+        redirect_to @book, notice: "You did the thing"
+      else
+        render 'new'
+      end
     end
   
     def show

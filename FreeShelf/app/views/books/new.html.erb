@@ -1,5 +1,10 @@
 <h1>Add a new book!</h1>
 
+<% if @book.errors.any? %>
+  <div class="alert alert-danger">
+  </div>
+<% end %>
+
 <%= form_with model: @book, url: books_path, local: true do |form| %>
   <p>
     <%= form.label :title %><br>

@@ -8,7 +8,7 @@
 
 <h2><bold>Our Available Books</bold></h2>
 <table class="table-bordered table-hoverable ">
-  <tr>
+  <tr class="table-primary">
     <th>Title</th>
     <th>Author</th>
     <th>Language</th>
@@ -32,8 +32,8 @@
 </table>
 
 
-<%= link_to 'Add a New Book', new_book_path %>
+<button type="button" class="button-link"><%= link_to 'Add a New Book', new_book_path %></button>
 
-<%= link_to 'Add a New Author', new_author_path %>
+<button type="button" class="button-link"><%= link_to 'Add a New Author', new_author_path %></button>
 
-<%= link_to "Author List", authors_path %>
+<button type="button" class="button-link"><%= link_to "Author List", authors_path %></button>

@@ -1,0 +1,14 @@
+<%= form_tag login_url do %>
+    <%= label_tag :username %>
+    <%= text_field_tag :username %>
+    <%= label_tag :password %>
+    <%= password_field_tag :password %>
+
+    <button type="submit">Log in</button>
+<% end %>
+
+<button type="button" class="button-link"><%= link_to 'Add a New Book', new_book_path %></button>
+
+<button type="button" class="button-link"><%= link_to 'Add a New Author', new_author_path %></button>
+
+<button type="button" class="button-link"><%= link_to "Author List", authors_path %></button>

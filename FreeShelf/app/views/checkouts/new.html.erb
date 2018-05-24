@@ -1,0 +1,17 @@
+<h1>Save Book?</h1>
+
+<%= form_for(@checkout) do |f| %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :book_id, value: @book.id %>
+    <button type="submit">Add Book</button>
+<% end %>
+
+<%= @book.title %>
+<%= @book.author.name%>
+
+
+<button type="button" class="button-link"><%= link_to 'Add a New Book', new_book_path %></button>
+
+<button type="button" class="button-link"><%= link_to 'Add a New Author', new_author_path %></button>
+
+<button type="button" class="button-link"><%= link_to "Author List", authors_path %></button>

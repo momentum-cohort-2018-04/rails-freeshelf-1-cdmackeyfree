@@ -4,14 +4,14 @@ class LoginsController < ApplicationController
     end
 
     def create
-        user = User.find_by(username: params[:username])
-        if user and user.authenticate(params[:password])
-            session[:user_id] = user.id
-            redirect_to root_url, notice: "You are logged in!"
-        else
-            flash.now[:alert] = "Nope! Try again! "
-            render :new
-        end
+        @user = User.find_or_create_by(username: params[:username])
+            if @user and user.authenticate(params[:password])
+                session[:user_id] = user.id
+                redirect_to root_url, notice: "You are logged in!"
+            else
+                flash.now[:alert] = "Nope! Try again! "
+                render :new
+            end
     end
 
     def destroy

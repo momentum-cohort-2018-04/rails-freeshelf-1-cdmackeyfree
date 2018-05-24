@@ -7,7 +7,20 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://cdn.shoelace.style/1.0.0-beta24/shoelace.css">
+    
+
+    <% if current_user %>
+          Logged in as <%= current_user %> |
+          <%= link_to "Log out", logout_path %>
+      <% else %>
+          <%= link_to "Log in", new_login_path, class: "btn btn-outline-primary btn-sm" %>  |  
+          <%= link_to "Register New User", new_user_path, class: "btn btn-outline-primary btn-sm" %>
+      <% end %>
+  
+  
   </head>
+
 
   <body>
     <%= yield %>

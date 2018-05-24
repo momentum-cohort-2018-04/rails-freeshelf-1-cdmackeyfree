@@ -4,8 +4,8 @@ class LoginsController < ApplicationController
     end
 
     def create
-        @user = User.find_or_create_by(username: params[:username])
-            if @user and user.authenticate(params[:password])
+        user = User.find_by(name: params[:name])
+            if user and user.authenticate(params[:password])
                 session[:user_id] = user.id
                 redirect_to root_url, notice: "You are logged in!"
             else

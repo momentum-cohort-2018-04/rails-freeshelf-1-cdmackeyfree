@@ -1,4 +1,4 @@
-class CheckoutsController < BooksController
+class CheckoutsController < ApplicationController
     def index
         if current_user
             @checkouts = current_user.checkouts

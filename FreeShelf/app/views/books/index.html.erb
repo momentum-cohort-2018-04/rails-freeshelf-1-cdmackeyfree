@@ -1,0 +1,39 @@
+<head>
+   <link rel="stylesheet" href="https://cdn.shoelace.style/1.0.0-beta24/shoelace.css">
+</head>
+<header>
+  <h1>The Free Shelf</h1>
+  <h2><em>Your friendly neighborhood lang library</em></h2>
+</header>
+
+<h2><bold>Our Available Books</bold></h2>
+<table class="table-bordered table-hoverable ">
+  <tr class="table-primary">
+    <th>Title</th>
+    <th>Author</th>
+    <th>Language</th>
+    <th>Options</th>
+    <th></th>
+    <th></th>
+  </tr>
+ 
+  <% @book.each do |book| %>
+    <tr>
+      <td><%= book.title %></td>
+      <td><%= book.authors.pluck(:name).join(', ') %></td>
+      <td><%= book.language %></td>
+      <td><%= link_to 'Show', book_path(book) %></td>
+      <td><%= link_to 'Edit', edit_book_path(book) %></td>
+      <td><%= link_to 'Destroy', book_path(book),
+              method: :delete,
+              data: { confirm: 'For real?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+
+<button type="button" class="button-link"><%= link_to 'Add a New Book', new_book_path %></button>
+
+<button type="button" class="button-link"><%= link_to 'Add a New Author', new_author_path %></button>
+
+<button type="button" class="button-link"><%= link_to "Author List", authors_path %></button>

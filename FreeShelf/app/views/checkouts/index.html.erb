@@ -1,0 +1,34 @@
+
+<h1><%= current_user %>'s Book Bag</h1>
+
+<table class='table table-striped'>
+    <thead>
+        <tr class="table-primary">
+            <th>Book</th>
+            <th>Author</th>
+            <th>Language</th>
+            <th> </th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @checkouts.each do |checkout| %>
+            <tr>
+                <td><%= checkout.book.title %></td>
+                <td><%= checkout.book.authors.pluck(:name).join(', ') %></td>
+                <td><%= checkout.book.language %></td>
+                <td><%= link_to 'Remove from My List', checkout_path(checkout), class: "btn btn-outline-secondary", method: :delete %></td>
+
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+
+
+<button type="button" class="button-link"><%= link_to 'Add a New Book', new_book_path %></button>
+
+<button type="button" class="button-link"><%= link_to 'Add a New Author', new_author_path %></button>
+
+<button type="button" class="button-link"><%= link_to "Author List", authors_path %></button>
+
+
+</div>

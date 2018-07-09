@@ -1,0 +1,24 @@
+<header>
+  <h2><bold>Our Available Authors</bold></h2>
+</header>
+<table class="table-bordered">
+  <tr class="table-primary">
+    <th>Author</th>
+    <th>Options</th>
+  </tr>
+ 
+  <% @author.each do |author| %>
+    <tr>
+      <td><%= author.name %></td>
+      <td><%= link_to 'Edit', edit_author_path(author) %></td>
+      <td><%= link_to 'Destroy', author_path(author),
+              method: :delete,
+              data: { confirm: 'For real?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+<button type="button" class="button-link"><%= link_to 'Add a New Book', new_book_path %></button>
+
+<button type="button" class="button-link"><%= link_to 'Add a New Author', new_author_path %></button>
+

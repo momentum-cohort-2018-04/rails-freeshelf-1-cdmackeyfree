@@ -1,0 +1,28 @@
+<div class="alert">
+  <%= notice %>
+</div>
+
+<h1>Check this book out</h1>
+
+<p>
+  <strong>Title:</strong>
+  <%= @book.title %>
+</p>
+ 
+<p>
+  <strong>Author:</strong>
+  <%= @book.authors.pluck(:name).join(',') %>
+</p>
+
+<p>
+  <strong>URL:</strong>
+  <%= @book.url %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @book.description %>
+</p>
+
+<%= link_to "Author List", authors_path %>
+<%= link_to "Book List", books_path %>
